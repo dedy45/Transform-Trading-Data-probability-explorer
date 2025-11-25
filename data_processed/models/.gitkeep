@@ -1,0 +1,10 @@
+# This file ensures the models directory is tracked by git
+# Trained models will be saved here:
+# - lgbm_classifier.pkl
+# - isotonic_calibrator.pkl
+# - lgbm_quantile_p10.pkl
+# - lgbm_quantile_p50.pkl
+# - lgbm_quantile_p90.pkl
+# - conformal_meta.json
+# - feature_list.json
+# - training_metrics.json

@@ -1,0 +1,91 @@
+features:
+  selected:
+  - dist_to_day_high_pips
+  - norm_close_vs_phi_confluence
+  - bar_volume
+  - upper_wick_over_range
+  - trend_strength_tf
+  - dist_to_day_low_pips
+  - bars_since_day_low
+  - norm_close_vs_phi
+  scaling: standard
+  handle_missing: median
+model_hyperparameters:
+  classifier:
+    n_estimators: 100
+    learning_rate: 0.05
+    max_depth: 5
+    min_child_samples: 20
+    subsample: 0.8
+    colsample_bytree: 0.8
+    random_state: 42
+  quantile:
+    n_estimators: 100
+    learning_rate: 0.05
+    max_depth: 5
+    min_child_samples: 20
+    random_state: 42
+thresholds:
+  quality_A_plus:
+    prob_win_min: 0.65
+    R_P50_min: 1.5
+  quality_A:
+    prob_win_min: 0.55
+    R_P50_min: 1.0
+  quality_B:
+    prob_win_min: 0.45
+    R_P50_min: 0.5
+  trade_quality_min: A
+conformal:
+  coverage: 0.9
+  method: quantile
+data_split:
+  train_ratio: 0.6
+  calib_ratio: 0.2
+  test_ratio: 0.2
+  split_method: time_series
+  random_state: 42
+preprocessing:
+  r_multiple_clip_min: -5.0
+  r_multiple_clip_max: 10.0
+  min_samples_train: 1000
+  cv_folds: 5
+  cv_method: time_series
+display:
+  n_bins_reliability: 10
+  n_top_features: 10
+  color_scheme:
+    A_plus: '#006400'
+    A: '#32CD32'
+    B: '#FFD700'
+    C: '#DC143C'
+  chart_height: 400
+  chart_template: plotly_white
+performance:
+  single_prediction_max_ms: 100
+  batch_1k_prediction_max_s: 5
+  batch_chunk_size: 10000
+  cache_models: true
+  lazy_loading: true
+monitoring:
+  track_execution_time: true
+  log_predictions: false
+  degradation_threshold: 0.1
+  rolling_window_size: 100
+paths:
+  model_dir: data_processed/models
+  classifier_model: lgbm_classifier.pkl
+  calibrator_model: isotonic_calibrator.pkl
+  quantile_p10_model: lgbm_quantile_p10.pkl
+  quantile_p50_model: lgbm_quantile_p50.pkl
+  quantile_p90_model: lgbm_quantile_p90.pkl
+  conformal_meta: conformal_meta.json
+  feature_list: feature_list.json
+  training_metrics: training_metrics.json
+  auto_feature_selection_results: output/auto_feature_selection_results.csv
+logging:
+  level: INFO
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  log_dir: logs
+  training_log: ml_training.log
+  prediction_log: ml_prediction.log

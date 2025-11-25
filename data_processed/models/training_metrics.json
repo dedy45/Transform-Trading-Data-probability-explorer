@@ -1,0 +1,215 @@
+{
+  "classifier": {
+    "auc_train": 0.9911120164679647,
+    "brier_train": 0.13088081709357557,
+    "n_features": 46,
+    "n_samples_train": 1105,
+    "auc_cv_mean": 0.49274781291341335,
+    "auc_cv_std": 0.04545461258367657,
+    "auc_cv_scores": [
+      0.49569892473118277,
+      0.4713639301874596,
+      0.5187467899332305,
+      0.556640625,
+      0.42128879471519387
+    ],
+    "auc_val": 0.5136688849314213,
+    "brier_val": 0.24972222323580998,
+    "n_samples_val": 368
+  },
+  "calibration": {
+    "brier_before": 0.24972222323580998,
+    "brier_after": 0.23333718297101452,
+    "brier_improvement": 0.016385040264795453,
+    "ece_before": 0.1075129676354796,
+    "ece_after": 7.044485767662339e-17,
+    "ece_improvement": 0.10751296763547953,
+    "n_samples": 368
+  },
+  "quantile": {
+    "n_samples_train": 1105,
+    "n_features": 46,
+    "mae_p10_train": 0.984310736978205,
+    "mae_p10_val": 1.0457764602342787,
+    "mae_p50_train": 0.686450451220154,
+    "mae_p50_val": 0.9683643119921193,
+    "mae_p90_train": 1.6624485788504095,
+    "mae_p90_val": 1.7324805689103986,
+    "n_samples_val": 368
+  },
+  "conformal": {
+    "nonconformity_quantile": 0.17426432670784497,
+    "coverage": 0.9,
+    "n_samples": 368,
+    "mean_nonconformity": 0.05431081380932011,
+    "median_nonconformity": 0.0,
+    "max_nonconformity": 1.172024596554225,
+    "quantile_level": 0.904891304347826
+  },
+  "metadata": {
+    "n_train": 1105,
+    "n_calib": 368,
+    "n_test": 370,
+    "n_features": 46,
+    "feature_columns": [
+      "bar_open",
+      "bar_high",
+      "bar_low",
+      "bar_close",
+      "bar_volume",
+      "trend_tf_dir",
+      "trend_strength_tf",
+      "trend_regime",
+      "atr_tf_14",
+      "bar_range_over_atr",
+      "volatility_regime",
+      "day_high",
+      "day_low",
+      "prev_day_high",
+      "norm_close_daily",
+      "dist_to_day_high_pips",
+      "prev_day_low",
+      "dist_to_prev_day_high_pips",
+      "dist_to_prev_day_low_pips",
+      "dist_to_round_number_pips",
+      "dist_to_day_low_pips",
+      "candle_dir",
+      "body_over_range",
+      "lower_wick_over_range",
+      "upper_wick_over_range",
+      "is_big_trend_candle",
+      "trend_m15_dir",
+      "trend_h1_dir",
+      "noise_score",
+      "trend_h4_dir",
+      "bars_since_day_high",
+      "realized_vol_m1_30m",
+      "bars_since_day_low",
+      "is_engulfing_prev",
+      "is_inside_bar",
+      "day_of_week",
+      "hour",
+      "bars_since_last_big_trend_candle",
+      "ap_entropy_m1_2h",
+      "perm_entropy_m5_2h",
+      "hurst_h1_1m",
+      "hurst_m5_2d",
+      "skew_m1_2h",
+      "kurt_m1_2h",
+      "spread_points",
+      "lz_complexity_m5_1d"
+    ],
+    "training_timestamp": "2025-11-24T14:33:44.037395",
+    "config": {
+      "features": {
+        "selected": [
+          "dist_to_day_high_pips",
+          "norm_close_vs_phi_confluence",
+          "bar_volume",
+          "upper_wick_over_range",
+          "trend_strength_tf",
+          "dist_to_day_low_pips",
+          "bars_since_day_low",
+          "norm_close_vs_phi"
+        ],
+        "scaling": "standard",
+        "handle_missing": "median"
+      },
+      "model_hyperparameters": {
+        "classifier": {
+          "n_estimators": 100,
+          "learning_rate": 0.05,
+          "max_depth": 5,
+          "min_child_samples": 20,
+          "subsample": 0.8,
+          "colsample_bytree": 0.8,
+          "random_state": 42
+        },
+        "quantile": {
+          "n_estimators": 100,
+          "learning_rate": 0.05,
+          "max_depth": 5,
+          "min_child_samples": 20,
+          "random_state": 42
+        }
+      },
+      "thresholds": {
+        "quality_A_plus": {
+          "prob_win_min": 0.65,
+          "R_P50_min": 1.5
+        },
+        "quality_A": {
+          "prob_win_min": 0.55,
+          "R_P50_min": 1.0
+        },
+        "quality_B": {
+          "prob_win_min": 0.45,
+          "R_P50_min": 0.5
+        },
+        "trade_quality_min": "A"
+      },
+      "conformal": {
+        "coverage": 0.9,
+        "method": "quantile"
+      },
+      "data_split": {
+        "train_ratio": 0.6,
+        "calib_ratio": 0.2,
+        "test_ratio": 0.2,
+        "split_method": "time_series",
+        "random_state": 42
+      },
+      "preprocessing": {
+        "r_multiple_clip_min": -5.0,
+        "r_multiple_clip_max": 10.0,
+        "min_samples_train": 1000,
+        "cv_folds": 5,
+        "cv_method": "time_series"
+      },
+      "display": {
+        "n_bins_reliability": 10,
+        "n_top_features": 10,
+        "color_scheme": {
+          "A_plus": "#006400",
+          "A": "#32CD32",
+          "B": "#FFD700",
+          "C": "#DC143C"
+        },
+        "chart_height": 400,
+        "chart_template": "plotly_white"
+      },
+      "performance": {
+        "single_prediction_max_ms": 100,
+        "batch_1k_prediction_max_s": 5,
+        "batch_chunk_size": 10000,
+        "cache_models": true,
+        "lazy_loading": true
+      },
+      "monitoring": {
+        "track_execution_time": true,
+        "log_predictions": false,
+        "degradation_threshold": 0.1,
+        "rolling_window_size": 100
+      },
+      "paths": {
+        "model_dir": "data_processed/models",
+        "classifier_model": "lgbm_classifier.pkl",
+        "calibrator_model": "isotonic_calibrator.pkl",
+        "quantile_p10_model": "lgbm_quantile_p10.pkl",
+        "quantile_p50_model": "lgbm_quantile_p50.pkl",
+        "quantile_p90_model": "lgbm_quantile_p90.pkl",
+        "conformal_meta": "conformal_meta.json",
+        "feature_list": "feature_list.json",
+        "training_metrics": "training_metrics.json",
+        "auto_feature_selection_results": "output/auto_feature_selection_results.csv"
+      },
+      "logging": {
+        "level": "INFO",
+        "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        "log_dir": "logs",
+        "training_log": "ml_training.log",
+        "prediction_log": "ml_prediction.log"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "coverage": 0.9,
+  "nonconformity_quantile": 0.17426432670784497,
+  "is_fitted": true,
+  "metadata": {
+    "nonconformity_quantile": 0.17426432670784497,
+    "coverage": 0.9,
+    "n_samples": 368,
+    "mean_nonconformity": 0.05431081380932011,
+    "median_nonconformity": 0.0,
+    "max_nonconformity": 1.172024596554225,
+    "quantile_level": 0.904891304347826
+  }
+}

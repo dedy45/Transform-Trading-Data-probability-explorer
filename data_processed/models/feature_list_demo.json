@@ -1,0 +1,15 @@
+{
+  "features": [
+    "trend_strength",
+    "rsi",
+    "spread"
+  ],
+  "scores": {
+    "trend_strength": 0.9343750000000001,
+    "rsi": 0.6887416267267507,
+    "spread": 0.6488182945034754
+  },
+  "n_features": 3,
+  "min_features": 5,
+  "max_features": 8
+}
