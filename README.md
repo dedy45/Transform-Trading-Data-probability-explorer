@@ -285,13 +285,6 @@ Final: Dapat 8-10 fitur optimal!
   - C: 20% (poor setups)
 - **Impact:** Trade only A+/A → Win rate improvement 5-10%
 
-**Documentation Lengkap:**
-- 📖 **Production Readiness Report:** `.kiro/specs/ml-prediction-engine/PRODUCTION_READINESS_REPORT.md`
-- 🚀 **Deployment Guide:** `.kiro/specs/ml-prediction-engine/DEPLOYMENT_GUIDE.md`
-- 📊 **Executive Summary:** `.kiro/specs/ml-prediction-engine/EXECUTIVE_SUMMARY.md`
-- 📚 **User Guide:** `DOCSAI/ML_PREDICTION_STEP_BY_STEP_GUIDE.md`
-- 🔧 **Troubleshooting:** `DOCSAI/ML_PREDICTION_TROUBLESHOOTING.md`
-- 💻 **Examples:** `examples/ml_prediction_*.py` (training, prediction, interpretation)
 
 **Test Coverage:**
 - ✅ **74/74 ML Engine tests passing** (100%)
